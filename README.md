@@ -1,3 +1,18 @@
+---
+
+## Optional extras (easy wins)
+- Add a config to **regenerate unsupported sentences** by prompting the LLM: “Rewrite only this sentence using sources [i,j].”
+- Add a flag to **drop any sentence** whose entailment < threshold.
+- Provide an **evaluation script** that computes % sentences supported ≥ τ on a small QA set.
+
+---
+Why:
+	•	Reduce hallucinations with evidence-backed sentences
+	•	Make outputs auditable with exact source chunks
+	•	Model-agnostic: works with any generator (we only check entailment post-retrieval)
+
+
+
 # 🗂️ LlamaIndex 🦙
 
 [![PyPI - Downloads](https://img.shields.io/pypi/dm/llama-index)](https://pypi.org/project/llama-index/)

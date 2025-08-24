@@ -1,6 +1,6 @@
 ---
 
-## Optional extras (easy wins)
+## Optional extras
 - Add a config to **regenerate unsupported sentences** by prompting the LLM: “Rewrite only this sentence using sources [i,j].”
 - Add a flag to **drop any sentence** whose entailment < threshold.
 - Provide an **evaluation script** that computes % sentences supported ≥ τ on a small QA set.

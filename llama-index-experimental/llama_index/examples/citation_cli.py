@@ -77,6 +77,18 @@ def run(
 
         print("\n=== Regenerated (citations) ===\n")
         print(enriched2["text_with_citations"])
+    # 4) Fact coverage
+    from llama_index.experimental.citation_retrieval import FactExtractor, compute_coverage
+    fe = FactExtractor(gen_fn=openai_gen(regen_model))  # reuse adapter
+    facts = fe.extract(question)
+    coverage = compute_coverage(facts, enriched["table"])
+
+    print("\n=== Fact Coverage ===")
+    for row in coverage:
+        mark = "✅" if row["covered"] else "❌"
+        print(f"{mark} {row['fact']} (entail={row['entail']})")
+
+
 
 if __name__ == "__main__":
     app()
